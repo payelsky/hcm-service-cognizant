@@ -41,11 +41,18 @@ public class HcmService {
 		List<Hcm> hcmlist=hcmrepository.findByemployeeIdIn(idlist);
 		List<EmployeeDetails> empdetailslist=hcmlist.stream().map(hc->EmployeeDetails.build(hc.getEmployeeId(), "", "", "", "", "", hc.getExperience(), hc.getYearsInCurrentRole(), hc.getGoalCompletedForCurrentYear(), hc.getClientAppreciationForCurrentYear()))
 		                .collect(Collectors.toList());
-		/*
-		 * empdetailslist.stream().map(empd->{empd.setAddress(emplist.get(0));
-		 * empd.setAge(null); empd.setGender(null); empd.setName(null);
-		 * empd.setIsActive(null)});
-		 */
+		
+		empdetailslist= empdetailslist.stream().map(empd->{
+		  Employee em=emplist.stream().filter(emp->emp.getEmployeeId()==empd.getEmployeeId()).findAny().get();	 
+		 
+		  empd.setAddress(em.getAddress());
+		  empd.setAge(em.getAge()); 
+		  empd.setGender(em.getGender()); 
+		  empd.setName(em.getName());
+		  empd.setIsActive(em.getIsActive());
+		  return empd;
+		  }).collect(Collectors.toList());
+		 
 		System.out.println("empdetailslist:::::::::::::::::::::::::"+empdetailslist);
 	//	empdetailslist.stream().map(empd->)
 		return empdetailslist;

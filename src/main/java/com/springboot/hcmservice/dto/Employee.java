@@ -1,6 +1,5 @@
 package com.springboot.hcmservice.dto;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +10,7 @@ import javax.persistence.Id;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor(staticName="build")
+@AllArgsConstructor
 public class Employee {
 	
 	@Id
