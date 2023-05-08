@@ -36,7 +36,7 @@ public class HcmController {
 	}
 	@GetMapping
 	public List<Hcm> getAllHcm(){
-	return  hcmService.getAllEmployee();
+	return  hcmService.getAllHcm();
 	}
 	
 	@PostMapping("/getDetails")

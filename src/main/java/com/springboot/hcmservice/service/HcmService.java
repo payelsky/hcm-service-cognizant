@@ -32,7 +32,7 @@ public class HcmService {
 		}
 	}
 	
-	public List<Hcm> getAllEmployee(){
+	public List<Hcm> getAllHcm(){
 		return hcmrepository.findAll();
 	}
 	

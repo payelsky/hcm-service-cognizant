@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 public class Hcm {
 	
 	@Id
-	
 	private int employeeId;
 	private String experience;
 	private String yearsInCurrentRole;
